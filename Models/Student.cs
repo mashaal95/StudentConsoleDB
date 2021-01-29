@@ -4,6 +4,8 @@ using System.Text;
 
 namespace StudentConsoleDB.Models
 {
+
+    //The model for the DB is established in this class
     public class Student
     {
         public int Id { get; set; }

@@ -10,8 +10,11 @@ namespace StudentConsoleDB
 {
     class Program
     {
+        //These two strings connect to the Db define the filepath to where the Text Db will be stored
         static string connString = "Server=(localdb)\\mssqllocaldb;Database=EFCore;Trusted_Connection=True;";
         static string fileName = @"C:\Users\Public\Documents\test.txt";
+
+        //The main method initiates the program and contains the main menu through which the user can navigate to various locations
         static void Main(string[] args)
         {
             Boolean Success = false;
@@ -68,12 +71,8 @@ namespace StudentConsoleDB
             } while (Success == false);
         }
 
-        static void Validations()
-        {
 
-
-        }
-
+        // This method is responsible for adding students into the DB
         static void AddStudent()
         {
             Int32 UserInput;
@@ -171,6 +170,8 @@ namespace StudentConsoleDB
             WriteFile(fileName);
         }
 
+
+        // This method is responsible for showcasing the current students in the DB
         static void ReadStudent()
         {
 
@@ -187,6 +188,8 @@ namespace StudentConsoleDB
             Console.WriteLine("\n");
         }
 
+
+        // This method is responsible for updating student details 
         static void UpdateStudent()
         {
             ReadStudent();
@@ -286,6 +289,8 @@ namespace StudentConsoleDB
 
         }
 
+
+        // This method is responsible for searching for students using various parameters
         static void SearchStudent()
         {
             Console.WriteLine("---------------------------------Search-------------------------------------");
@@ -376,6 +381,8 @@ namespace StudentConsoleDB
 
         }
 
+
+        //This method is responsible for writing SQL outputs to the Db
         static void WriteFile(string fileName)
         {
             SqlCommand comm = new SqlCommand();

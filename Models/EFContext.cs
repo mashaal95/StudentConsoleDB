@@ -5,6 +5,8 @@ using System.Text;
 
 namespace StudentConsoleDB.Models
 {
+
+    //The Db Context is defined in this class which connects the model to the Db
     public class EFContext : DbContext
     {
 
