@@ -11,7 +11,7 @@ namespace StudentConsoleDB
     class Program
     {
         static string connString = "Server=(localdb)\\mssqllocaldb;Database=EFCore;Trusted_Connection=True;";
-        static string fileName = @"C:\test.txt";
+        static string fileName = @"C:\Users\Public\Documents\test.txt";
         static void Main(string[] args)
         {
             Boolean Success = false;
@@ -215,6 +215,7 @@ namespace StudentConsoleDB
                         FirstNameUpdate.FirstName = Console.ReadLine().ToLower();
                         db.SaveChanges();
                         ReadStudent();
+                        WriteFile(fileName);
                         break;
 
                     case 2:
@@ -224,6 +225,7 @@ namespace StudentConsoleDB
                         LastNameUpdate.LastName = Console.ReadLine().ToLower();
                         db.SaveChanges();
                         ReadStudent();
+                        WriteFile(fileName);
                         break;
 
                     case 3:
@@ -233,6 +235,7 @@ namespace StudentConsoleDB
                         AgeUpdate.Age = Convert.ToInt32(Console.ReadLine());
                         db.SaveChanges();
                         ReadStudent();
+                        WriteFile(fileName);
                         break;
                     case 4:
                         Console.WriteLine("Enter Old Address of the Student");
@@ -241,6 +244,7 @@ namespace StudentConsoleDB
                         AddressUpdate.Address = Console.ReadLine().ToLower();
                         db.SaveChanges();
                         ReadStudent();
+                        WriteFile(fileName);
                         break;
 
                     case 5:
@@ -250,6 +254,7 @@ namespace StudentConsoleDB
                         GenderUpdate.Gender = Console.ReadLine().ToLower();
                         db.SaveChanges();
                         ReadStudent();
+                        WriteFile(fileName);
                         break;
 
 
@@ -260,6 +265,7 @@ namespace StudentConsoleDB
                         PhoneNumUpdate.PhoneNum = Console.ReadLine();
                         db.SaveChanges();
                         ReadStudent();
+                        WriteFile(fileName);
                         break;
 
                     case 7:
@@ -269,6 +275,7 @@ namespace StudentConsoleDB
                         DOBUpdate.DateOfBirth = DateTime.Parse(Console.ReadLine());
                         db.SaveChanges();
                         ReadStudent();
+                        WriteFile(fileName);
                         break;
 
                     default:
@@ -286,10 +293,7 @@ namespace StudentConsoleDB
             Console.WriteLine("To Search by Gender, Press 2");
             Console.WriteLine("To Search by Age and find students greater than entered Age, Press 3");
 
-
-
             var db = new EFContext();
-
 
             Int32 UserInput = Convert.ToInt32(Console.ReadLine());
 
@@ -364,6 +368,7 @@ namespace StudentConsoleDB
 
             db.Students.Remove(x);
             db.SaveChanges();
+            WriteFile(fileName);
 
             Console.WriteLine("\n Record has been deleted");
 
